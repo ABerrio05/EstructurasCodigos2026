@@ -1,12 +1,11 @@
 class Nodo:
     def __init__(self, titulo, procesos):
         self.titulo = titulo
-        self.procesos = procesos  # Lista de sub-procesos
-        self.completado = False   # Estado de validación
+        self.procesos = procesos  
+        self.completado = False   
         self.siguiente = None
-        self.anterior = None      # Solo para Lista Doble
+        self.anterior = None      
 
-# LISTA SIMPLE CIRCULAR (PRODUCCIÓN) 
 class ListaSimpleCircular:
     def __init__(self):
         self.cabeza = None
@@ -42,14 +41,13 @@ class ListaSimpleCircular:
         temp = self.cabeza
         print("\n--- ESTADO DE PRODUCCIÓN (SIMPLE CIRCULAR) ---")
         while True:
-            estado = "COMPLETADO" if temp.completado else "⏳ PENDIENTE"
+            estado = "COMPLETADO" if temp.completado else "PENDIENTE"
             print(f"{temp.titulo} [{estado}]")
             for p in temp.procesos:
                 print(f"   - {p}")
             temp = temp.siguiente
             if temp == self.cabeza: break
 
-# LISTA DOBLE CIRCULAR (DISTRIBUCIÓN)
 class ListaDobleCircular:
     def __init__(self):
         self.cabeza = None
@@ -81,8 +79,6 @@ class ListaDobleCircular:
                 print(f"   - {p}")
             temp = temp.siguiente
             if temp == self.cabeza: break
-
-# MENU DEL SISTEMA 
 
 class SistemaMermelada:
     def __init__(self):
