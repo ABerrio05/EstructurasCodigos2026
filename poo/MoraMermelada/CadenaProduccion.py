@@ -39,7 +39,7 @@ class ListaSimpleCircular:
             print("\n[!] Producción vacía.")
             return
         temp = self.cabeza
-        print("\n--- ESTADO DE PRODUCCIÓN (SIMPLE CIRCULAR) ---")
+        print("\n--- ESTADO DE PRODUCCIÓN ---")
         while True:
             estado = "COMPLETADO" if temp.completado else "PENDIENTE"
             print(f"{temp.titulo} [{estado}]")
@@ -71,9 +71,8 @@ class ListaDobleCircular:
             print("\n[!] Distribución vacía.")
             return
         temp = self.cabeza
-        print("\n--- ESTADO DE DISTRIBUCIÓN (DOBLE CIRCULAR) ---")
+        print("\n--- ESTADO DE DISTRIBUCIÓN ---")
         while True:
-            # Demostración de enlace doble (anterior y siguiente)
             print(f"{temp.titulo} (Ant: {temp.anterior.titulo} | Sig: {temp.siguiente.titulo})")
             for p in temp.procesos:
                 print(f"   - {p}")
