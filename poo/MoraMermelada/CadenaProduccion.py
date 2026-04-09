@@ -1,11 +1,12 @@
 class Nodo:
     def __init__(self, titulo, procesos):
         self.titulo = titulo
-        self.procesos = procesos  
-        self.completado = False   
+        self.procesos = procesos  # Lista de sub-procesos
+        self.completado = False   # Estado de validación
         self.siguiente = None
-        self.anterior = None      
+        self.anterior = None      # Solo para Lista Doble
 
+# LISTA SIMPLE CIRCULAR (PRODUCCIÓN) 
 class ListaSimpleCircular:
     def __init__(self):
         self.cabeza = None
@@ -39,15 +40,16 @@ class ListaSimpleCircular:
             print("\n[!] Producción vacía.")
             return
         temp = self.cabeza
-        print("\n--- ESTADO DE PRODUCCIÓN ---")
+        print("\n--- ESTADO DE PRODUCCIÓN (SIMPLE CIRCULAR) ---")
         while True:
-            estado = "COMPLETADO" if temp.completado else "PENDIENTE"
+            estado = "COMPLETADO" if temp.completado else "⏳ PENDIENTE"
             print(f"{temp.titulo} [{estado}]")
             for p in temp.procesos:
                 print(f"   - {p}")
             temp = temp.siguiente
             if temp == self.cabeza: break
 
+# LISTA DOBLE CIRCULAR (DISTRIBUCIÓN)
 class ListaDobleCircular:
     def __init__(self):
         self.cabeza = None
@@ -71,13 +73,16 @@ class ListaDobleCircular:
             print("\n[!] Distribución vacía.")
             return
         temp = self.cabeza
-        print("\n--- ESTADO DE DISTRIBUCIÓN ---")
+        print("\n--- ESTADO DE DISTRIBUCIÓN (DOBLE CIRCULAR) ---")
         while True:
+            # Demostración de enlace doble (anterior y siguiente)
             print(f"{temp.titulo} (Ant: {temp.anterior.titulo} | Sig: {temp.siguiente.titulo})")
             for p in temp.procesos:
                 print(f"   - {p}")
             temp = temp.siguiente
             if temp == self.cabeza: break
+
+# MENU DEL SISTEMA 
 
 class SistemaMermelada:
     def __init__(self):
